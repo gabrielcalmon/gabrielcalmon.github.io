@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ateles</title>
+  <title>OpenManipulator-Pro</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -68,11 +68,11 @@
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Ateles</h1>
+        <h1 class="mb-2 mb-lg-0">OpenManipulator-Pro</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Ateles</li>
+            <li class="current">OpenManipulator-Pro</li>
           </ol>
         </nav>
       </div>
@@ -106,15 +106,19 @@
           <div class="swiper-wrapper align-items-center">
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/ateles-1.jpg" alt="">
+              <img src="assets/img/portfolio/openmanipulator-1.jpg" alt="">
             </div>
 
              <div class="swiper-slide">
-              <img src="assets/img/portfolio/ateles-2.jpg" alt="">
+              <img src="assets/img/portfolio/openmanipulator-2.jpg" alt="">
             </div>
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/ateles-3.jpg" alt="">
+              <img src="assets/img/portfolio/openmanipulator-3.jpg" alt="">
+            </div>
+
+            <div class="swiper-slide">
+              <img src="assets/img/portfolio/openmanipulator-4.jpg" alt="">
             </div>
 
           </div>
@@ -127,15 +131,15 @@
 
           <div class="col-lg-8" data-aos="fade-up">
             <div class="portfolio-description">
-              <h2>Project Ateles: stability control of the movement of a quadruped robot through a robotic manipulator as a tail</h2>
+              <h2>OpenManipulator-Pro: Robot Manipulator Motion System With Orientation Constraint</h2>
               <p>
-                The biomimetics is an approach that seeks inspiration from nature for the development of technological solutions and it is useful in creating new concepts in robotic engineering.
+                This work explored the problem of trajectory planning for robotic manipulators under orientation constraints, with a focus on controlling the end-effector along predefined paths within the workspace. The robot used was the Open Manipulator-Pro from ROBOTIS, a 6 DoF manipulator with an open architecture that allows full access to actuator control. The trajectory planning was implemented with MoveIt, a package from the ROS ecosystem to handle motion planning for a nonlinear and multivariable system
               </p>
               <p>
-               This project explored the creation of a proof of concept for a quadruped robot with an integrated robotic manipulator, aiming to improve stability on sloping terrains. The robotic manipulator was used as an adaptive dynamic control system, allowing the robot to react to external disturbances and maintain balance during movement in adverse environments.
+                Both simulation and real-world experiments were carried out, allowing for safe validation of trajectories and ensuring consistency between virtual and physical implementations. In this way I could explore how to interface simulation results into a real robot.
               </p>
               <p>
-                The main contribution of this work is the use of the manipulator as an auxiliary mechanism to the control system of the robot, adding an extra degree of freedom that allows for responses to unexpected changes in the terrain. The proof of concept included laboratory tests where the robot ascends an inclined plane, challenging scenario for stability. The results validate the proposed model, with a focus on reducing the average force exerted by each leg to maintain the overall stability of the system
+                The results demonstrated that, in the absence of orientation constraints, the trajectory planner produces multiple valid solutions with varying end-effector orientations. However, by enforcing a fixed orientation constraint, the solution space is significantly reduced, requiring additional joint compensation and leading to a decrease in the manipulator's effective operational workspace. Despite this limitation, the constrained approach ensures consistent tool orientation throughout the trajectory, which is critical for tasks that demand precise alignment.
               </p>
             </div>
           </div>
@@ -145,10 +149,8 @@
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong> Robotics and Control</li>
-                <li><strong>Project date</strong> 2024</li>
-                <li><strong>Robots used:</strong> GO2, from Unitree, and Alpha 5, from Reach Robotics.</li>
-                <li><strong>Additional notes:</strong> This project was developed as an undergraduate capstone project for the completion of the Bachelor's degree in Electrical Engineering.</li>
-                <li><strong>Fun fact:</strong> The name 'Ateles' refers to a genus of primates and was chosen to name the project due to the similarity between the robotic system and how such animals use their tails as a balancing limb.</li>
+                <li><strong>Project date</strong> 2023</li>
+                <li><strong>Robot used:</strong> OpenManipulator-Pro.</li>
 
               </ul>
             </div>

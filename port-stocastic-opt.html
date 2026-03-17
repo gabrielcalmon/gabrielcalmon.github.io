@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ateles</title>
+  <title>Stochastic Optimization</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,6 +26,9 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Latex -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <!-- =======================================================
   * Template Name: DevFolio
@@ -68,11 +71,11 @@
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Ateles</h1>
+        <h1 class="mb-2 mb-lg-0">Stochastic Optimization</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Ateles</li>
+            <li class="current">Stochastic Optimization</li>
           </ol>
         </nav>
       </div>
@@ -106,15 +109,11 @@
           <div class="swiper-wrapper align-items-center">
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/ateles-1.jpg" alt="">
+              <img src="assets/img/portfolio/bill-3.jpg" alt="">
             </div>
 
              <div class="swiper-slide">
-              <img src="assets/img/portfolio/ateles-2.jpg" alt="">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="assets/img/portfolio/ateles-3.jpg" alt="">
+              <img src="assets/img/portfolio/bill-2.jpg" alt="">
             </div>
 
           </div>
@@ -127,15 +126,25 @@
 
           <div class="col-lg-8" data-aos="fade-up">
             <div class="portfolio-description">
-              <h2>Project Ateles: stability control of the movement of a quadruped robot through a robotic manipulator as a tail</h2>
+              <h2>Stochastic Optimization applied to path finding on a random generated maze</h2>
               <p>
-                The biomimetics is an approach that seeks inspiration from nature for the development of technological solutions and it is useful in creating new concepts in robotic engineering.
+                The proposed challenge originally came from an academic task on the subject to implement a path finding solution to a treasure on a random generated maze. 
               </p>
               <p>
-               This project explored the creation of a proof of concept for a quadruped robot with an integrated robotic manipulator, aiming to improve stability on sloping terrains. The robotic manipulator was used as an adaptive dynamic control system, allowing the robot to react to external disturbances and maintain balance during movement in adverse environments.
+                The agent is represented as an red circle, the treasure is the yellow square, the black region are walls and the white ones are open regions to move. The valid actions for the agent are go up, down lef or right.
+              </p>
+              
+              <p>
+                But there was a catch: the agent has no memory and can only make decisions based on present conditions. And all the data the agent had was the euclidean distance between the for neighbor blocks (up, down lef or right) to the goal.
               </p>
               <p>
-                The main contribution of this work is the use of the manipulator as an auxiliary mechanism to the control system of the robot, adding an extra degree of freedom that allows for responses to unexpected changes in the terrain. The proof of concept included laboratory tests where the robot ascends an inclined plane, challenging scenario for stability. The results validate the proposed model, with a focus on reducing the average force exerted by each leg to maintain the overall stability of the system
+               The proposed solution was based on a stochastic optimization approach, adapted from <a href="https://www.researchgate.net/profile/Arash-Mazidi/publication/320961190_A_meta-heuristic_approach_to_CVRP_problem_local_search_optimization_based_on_GA_and_ant_colony/links/5a3ac11c0f7e9bbef9fd9c03/A-meta-heuristic-approach-to-CVRP-problem-local-search-optimization-based-on-GA-and-ant-colony.pdf" target="_blank" rel="noopener noreferrer">A meta-heuristic approach to CVRP problem: local search optimization based on GA and ant colony</a> (Mazidi, Arash, Mostafa Fakhrahmad, and Mohammad Hadi Sadreddini, 2016). The 'current' distance was estimated by the mean of the surrounding distances, while the 'next' distance was calculated for each of the for cardinal points.
+              </p>
+              <p>
+                \[ C(d_{current}, d_{next}) = \frac{1}{1 + e^{3(d_{next} - d_{current})}} \]
+              </p>
+              <p>
+                While a traditional optimization would always chose the smaller cost, this stochastic approach uses the calculated cost as a probability data for the random selection of the next move. This is important because a completely random approach could take a huge amount of time to get the correct combination of moves, while a traditional optimization could trap the agent on a minimal local. So this hybrid algorithm uses the traditional optimization as a heuristic to the solution, while the randomness with non-uniform probabilities takes the agent out of potential local minimums.
               </p>
             </div>
           </div>
@@ -144,12 +153,8 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong> Robotics and Control</li>
+                <li><strong>Category</strong> Stochastic and Simulation</li>
                 <li><strong>Project date</strong> 2024</li>
-                <li><strong>Robots used:</strong> GO2, from Unitree, and Alpha 5, from Reach Robotics.</li>
-                <li><strong>Additional notes:</strong> This project was developed as an undergraduate capstone project for the completion of the Bachelor's degree in Electrical Engineering.</li>
-                <li><strong>Fun fact:</strong> The name 'Ateles' refers to a genus of primates and was chosen to name the project due to the similarity between the robotic system and how such animals use their tails as a balancing limb.</li>
-
               </ul>
             </div>
           </div>
