@@ -68,11 +68,11 @@
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Ateles</h1>
+        <h1 class="mb-2 mb-lg-0">Pioneer</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Ateles</li>
+            <li class="current">Pioneer</li>
           </ol>
         </nav>
       </div>
@@ -113,6 +113,10 @@
               <img src="assets/img/portfolio/pioneer-2.jpg" alt="">
             </div>
 
+            <div class="swiper-slide">
+              <img src="assets/img/portfolio/pioneer-3.jpg" alt="">
+            </div>
+
           </div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
@@ -123,15 +127,24 @@
 
           <div class="col-lg-8" data-aos="fade-up">
             <div class="portfolio-description">
-              <h2>Project Ateles: stability control of the movement of a quadruped robot through a robotic manipulator as a tail</h2>
+              <h2>Pioneer: simulation of a maze solving robot</h2>
               <p>
-                The biomimetics is an approach that seeks inspiration from nature for the development of technological solutions and it is useful in creating new concepts in robotic engineering.
+                The Pioneer 3-DX robot is an all-purpose base equipped with two motorized wheels, two caster wheels and 16 ultrasonic sensors (8 forward-facing, 8 rear-facing) for proximity measurements.
               </p>
               <p>
-               This project explored the creation of a proof of concept for a quadruped robot with an integrated robotic manipulator, aiming to improve stability on sloping terrains. The robotic manipulator was used as an adaptive dynamic control system, allowing the robot to react to external disturbances and maintain balance during movement in adverse environments.
+                The simulation was performed on the CoppeliaSim, previously known as V-REP, at a simply connected maze, which means that there are no loop paths. This information was very important to model the solving logic.
               </p>
               <p>
-                The main contribution of this work is the use of the manipulator as an auxiliary mechanism to the control system of the robot, adding an extra degree of freedom that allows for responses to unexpected changes in the terrain. The proof of concept included laboratory tests where the robot ascends an inclined plane, challenging scenario for stability. The results validate the proposed model, with a focus on reducing the average force exerted by each leg to maintain the overall stability of the system
+                The frontal and right ultrasonic were used to identify the walls based on a set-point distance. So, there were four possible states:
+                  <ul>
+                    <li>Front: no wall, Right: no wall. The robot keeps going ahead until the middle of the intersection, then turn right</li>
+                    <li>Front: no wall, Right: wall detected. The robot keeps going ahead.</li>
+                    <li>Front: wall detected, Right: no wall. The robot turns right.</li>
+                    <li>Front: wall detected, Right: wall detected. The robot turns left.</li>
+                  </ul>
+              </p>
+              <p>
+                This represents a right-wall-following algorithm, which means that the robots will always try to keep a wall at its right side. Since the environment is a simply connected maze, this logics ensures that the robot will eventually found the exit (represented by the black tape on the floor) and will not keep going back to the same hallways.
               </p>
             </div>
           </div>
@@ -141,10 +154,9 @@
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong> Robotics and Control</li>
-                <li><strong>Project date</strong> 2024</li>
-                <li><strong>Robots used:</strong> GO2, from Unitree, and Alpha 5, from Reach Robotics.</li>
-                <li><strong>Additional notes:</strong> This project was developed as an undergraduate capstone project for the completion of the Bachelor's degree in Electrical Engineering.</li>
-                <li><strong>Fun fact:</strong> The name 'Ateles' refers to a genus of primates and was chosen to name the project due to the similarity between the robotic system and how such animals use their tails as a balancing limb.</li>
+                <li><strong>Project date</strong> 2020</li>
+                <li><strong>Robot used</strong> pioneer 3-DX </li>
+                <li><strong>Context</strong> This project was one of the phases from the selection process for the IEEE RAS CIMATEC</li>
 
               </ul>
             </div>

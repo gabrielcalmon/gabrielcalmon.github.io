@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Stochastic Optimization</title>
+  <title>String Sinth</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -71,11 +71,11 @@
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Stochastic Optimization</h1>
+        <h1 class="mb-2 mb-lg-0">String Sinth</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Stochastic Optimization</li>
+            <li class="current">String Sinth</li>
           </ol>
         </nav>
       </div>
@@ -109,11 +109,7 @@
           <div class="swiper-wrapper align-items-center">
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/bill-3.jpg" alt="">
-            </div>
-
-             <div class="swiper-slide">
-              <img src="assets/img/portfolio/bill-2.jpg" alt="">
+              <img src="assets/img/portfolio/string-synth-1.jpg" alt="">
             </div>
 
           </div>
@@ -126,26 +122,57 @@
 
           <div class="col-lg-8" data-aos="fade-up">
             <div class="portfolio-description">
-              <h2>Stochastic Optimization applied to path finding on a random generated maze</h2>
+              <h2>String Sinth: a guitar string synthesizer based on a mathematical formulation.</h2>
               <p>
-                The proposed challenge originally came from an academic task on the subject to implement a path finding solution to a treasure on a random generated maze. 
+                During this project it was developed a application to synthesize a guitar audio signal through recursive equations. So drawing on the techniques and mathematical models available in the literature, a solution was implemented using Python.
               </p>
               <p>
-                The agent is represented as an red circle, the treasure is the yellow square, the black region are walls and the white ones are open regions to move. The valid actions for the agent are go up, down lef or right.
+                When a tensioned string is disturbed by a wave, the elements that compose it move perpendicularly to the direction of propagation. This relationship can be described by a partial differential equation, where y represents the displacement at time t and position x along the string, i.e., y(x, t). Mathematically, this behavior is expressed by the following equation, where v is the wave propagation velocity.
               </p>
+
+              <p>
+                \[
+                \frac{\partial^2 y}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2 y}{\partial t^2} = 0
+                \]
+              </p>
+
+              <p>
+                However, this equation neglects losses inherent to real oscillations, as well as the effects of the string material on the phenomenon. To account for these non-ideal characteristics, an expanded wave equation is proposed at <a href="https://escholarship.mcgill.ca/concern/theses/k643b175t" target="_blank" rel="noopener noreferrer">An interdisciplinary study of the timbre of the classical guitar</a>, as shown in the equation bellow. In this formulation, the first two terms are identical to those in previous equation. The parameter &gamma; represents a damping factor and models energy dissipation effects, such as air friction, energy transfer from the string to the instrument body, and internal damping within the string. The term l is a dimensionless parameter related to the string stiffness and is proportional to the Young's modulus and to the string radius, and also inversely proportional to its linear density. For simplicity, the parameter l is used directly.
+              </p>
+
+              <p>
+                \[
+                l = \frac{E \pi r^4}{\mu}
+                \]
+              </p>
+
+              <p>
+                \[
+                \frac{\partial^2 y}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2 y}{\partial t^2} - \gamma \frac{\partial y}{\partial t} - l^4 \frac{\partial^4 y}{\partial x^4} = 0
+                \]
+              </p>
+
+              <p>
+                The presented formulation, however, is expressed in terms of continuous derivatives and therefore cannot be directly implemented on a computer, which operates on discrete values. A common approach is to apply numerical approximations for derivatives. For instance:
+              </p>
+
+              <p>
+                \[
+                \frac{\partial u}{\partial x} = \frac{u_{i+1}^j - u_{i-1}^j}{2\Delta x}
+                \]
+              </p>
+
+              <p>
+                \[
+                \frac{\partial^2 u}{\partial x^2} = \frac{u_{i+1}^j - 2u_i^j + u_{i-1}^j}{\Delta x^2}
+                \]
+              </p>
+
+              <p>
+                Combining this approximations with the proposed formulation, it was possible to implement a string synthesizer based on a mathematical formulation.
+              </p>
+
               
-              <p>
-                But there was a catch: the agent has no memory and can only make decisions based on present conditions. And all the data the agent had was the euclidean distance between the for neighbor blocks (up, down lef or right) to the goal.
-              </p>
-              <p>
-               The proposed solution was based on a stochastic optimization approach, adapted from <a href="https://www.researchgate.net/profile/Arash-Mazidi/publication/320961190_A_meta-heuristic_approach_to_CVRP_problem_local_search_optimization_based_on_GA_and_ant_colony/links/5a3ac11c0f7e9bbef9fd9c03/A-meta-heuristic-approach-to-CVRP-problem-local-search-optimization-based-on-GA-and-ant-colony.pdf" target="_blank" rel="noopener noreferrer">A meta-heuristic approach to CVRP problem: local search optimization based on GA and ant colony</a> (Mazidi, Arash, Mostafa Fakhrahmad, and Mohammad Hadi Sadreddini, 2016). The 'current' distance was estimated by the mean of the surrounding distances, while the 'next' distance was calculated for each of the for cardinal points.
-              </p>
-              <p>
-                \[ C(d_{current}, d_{next}) = \frac{1}{1 + e^{3(d_{next} - d_{current})}} \]
-              </p>
-              <p>
-                While a traditional optimization would always chose the smaller cost, this stochastic approach uses the calculated cost as a probability data for the random selection of the next move. This is important because a completely random approach could take a huge amount of time to get the correct combination of moves, while a traditional optimization could trap the agent on a minimal local. So this hybrid algorithm uses the traditional optimization as a heuristic to the solution, while the randomness with non-uniform probabilities takes the agent out of potential local minimums.
-              </p>
             </div>
           </div>
 
@@ -153,9 +180,9 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong> Stochastic and Simulation</li>
+                <li><strong>Category</strong> Robotics and Control</li>
                 <li><strong>Project date</strong> 2024</li>
-                <li><strong>Context:</strong> This project was part of an practical assessment for the class "Computational Intelligence".</li>
+                <li><strong>Context</strong> This project was part of an practical assessment for the class "Discrete-Time Signals and Systems".</li>
               </ul>
             </div>
           </div>
